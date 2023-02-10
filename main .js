@@ -1,43 +1,47 @@
 let  des =document.getElementById('des')
 let  bin =document.getElementById("bin")
 let error =document.getElementById("error")
+let auct =document.getElementById("aoct")
+let hex =document.getElementById('hex')
+
 //add event lisnter
+//from decimal to all 
 des.addEventListener('input' , () =>{
   let decimal =parseInt(des.value)
  bin.value =decimal.toString(2)
+ auct.value = decimal.toString(8)
+ hex.value =decimal.toString(16)
 
 })
-bin.addEventListener('input', () =>{
-
-if(check(bin.value)){
-
-error.classList ='correct'
-error.innerText= 'vaild transaction'
- des.value =parseInt(bin.value ,2)
-
-}
-else{
-
-error.innerText ='please enter a  number'
-error.classList ='error'
+//auval to all
+auct.addEventListener("input" ,()=>{
 
 
-}
-
-
+  let decimal= des.value =parseInt(auct.value ,8)
+bin.value = decimal.toString(2)
+ hex.value = decimal.toString(16)
 
 
 })
- function check(input){
-for(let i  =0 ;i<input.length ; i++){
+// convert from hex to all 
+hex.addEventListener("input" ,() =>{
+  let decimal= des.value =parseInt(hex.value ,16)
+bin.value = decimal.toString(2)
+ auct.value = decimal.toString(8)
 
 
-if(!input[i] =='0'  || !input[i] =='1'){
-    return true
-}
-return false
-
-}
+})
 
 
-}
+
+
+
+//convert from binary to all
+
+bin.addEventListener("input" ,() =>{
+  let decimal= des.value =parseInt(bin.value  ,2)
+
+ auct.value = decimal.toString(8)
+
+ hex.value = decimal.toString(16)
+})
